@@ -73,8 +73,9 @@ I tried to take some images to help out with this: You don't have to use the col
 
 Enter the downloaded DWIN_T5UIC1_LCD folder.
 
-get your API key.
-'~/moonraker/scripts/fetch-apikey.sh'
+To get  your API key run:
+
+`~/moonraker/scripts/fetch-apikey.sh`
 
 Edit the file run.py and past your API key
 
