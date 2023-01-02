@@ -127,8 +127,8 @@ Run with `python3 ./run.py`
 
 	Note: Delay of 30s after boot to allow webservices to settal.
 	
-	path of `run.py` is expected to be `/home/pi/DWIN_T5UIC1_LCD/run.py`
-	
+	path of `run.sh` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.sh`
+	path of `run.py` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.py`
 ```bash
 sudo chmod +x run.sh run.py simpleLCD.service
 ```
