@@ -140,7 +140,7 @@ sudo mv simpleLCD.service /lib/systemd/system/simpleLCD.service
 ```
    
 ```bash
-sudo chmod 644 /lib/systemd/system/simpleLCD.service`
+sudo chmod 644 /lib/systemd/system/simpleLCD.service
 ```
 
 ```bash
