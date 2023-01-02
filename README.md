@@ -130,6 +130,8 @@ Run with `python3 ./run.py`
 	
 	path of `run.sh` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.sh`
 	path of `run.py` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.py`
+	
+	The run.sh script that is loaded by simpleLCD.service will re-run run.py on firmware restarts of the printe. If it fails to start for 5 times within 30 second it will exit and stop until the net boot. 
 
 ```bash
 sudo chmod +x run.sh run.py simpleLCD.service
