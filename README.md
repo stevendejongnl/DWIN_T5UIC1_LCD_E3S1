@@ -56,10 +56,12 @@ To:
   * Vcc =   2   (5v)
   * Gnd =   6   (GND)
 
+<img src ="images/GPIO.png?raw=true" width="325" height="75">
+
 Here's a diagram based on my color selection:
 
 <img src ="images/GPIO.png?raw=true" width="325" height="75">
-<img src ="images/panel.png?raw=true" width="325" height="180">
+<img src ="images/Raspberry Pi GPIO.png?raw=true" width="325" height="325">
 
 I tried to take some images to help out with this: You don't have to use the color of wiring that I used:
 
