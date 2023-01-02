@@ -104,6 +104,7 @@ DWINLCD = DWIN_LCD(
 ```
 
 If your control wheel is reversed (Voxelab Aquila) change the encoder_pins to this instead.
+
 ```python
 #!/usr/bin/env python3
 from dwinlcd import DWIN_LCD
@@ -129,6 +130,7 @@ Run with `python3 ./run.py`
 	
 	path of `run.sh` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.sh`
 	path of `run.py` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.py`
+
 ```bash
 sudo chmod +x run.sh run.py simpleLCD.service
 ```
