@@ -81,7 +81,11 @@ To get  your API key run:
 
 Edit the file run.py and past your API key
 
-For an Ender3v2 and Ender 3 S1
+```bash
+nano run.py
+```
+This is how the run.py looks for an Ender3v2 and Ender 3 S1
+
 ```python
 #!/usr/bin/env python3
 from dwinlcd import DWIN_LCD
