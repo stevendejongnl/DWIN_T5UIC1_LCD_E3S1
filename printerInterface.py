@@ -465,7 +465,7 @@ class PrinterData:
 
 	def resume_job(self): #fixed
 		print('Resuming job:')
-		self.postREST('printer/print/resume', json=None)
+		self.postREST('/printer/print/resume', json=None)
 
 	def set_feedrate(self, fr):
 		self.feedrate_percentage = fr
