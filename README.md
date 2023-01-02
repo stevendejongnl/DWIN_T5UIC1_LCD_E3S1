@@ -80,7 +80,7 @@ I have added some Ender 3S1 specific images:
 
 ### Run The Code
 
-Enter the downloaded DWIN_T5UIC1_LCD folder.
+Enter the downloaded DWIN_T5UIC1_LCD_E3S1 folder.
 
 To get  your API key run:
 
