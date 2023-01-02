@@ -48,7 +48,7 @@ To:
 
 ### Wire the display 
 
-<img src ="images/Raspberry_Pi_GPIO.png?raw=true" width="325" height="75">
+<img src ="images/Raspberry_Pi_GPIO.png?raw=true" width="800" height="572">
 
   * Display <-> Raspberry Pi GPIO BCM
   * Rx  =   GPIO14  (Tx)
@@ -64,7 +64,6 @@ To:
 Here's a diagram based on my color selection:
 
 <img src ="images/GPIO.png?raw=true" width="325" height="75">
-<img src ="images/Raspberry Pi GPIO.png?raw=true" width="325" height="325">
 
 I tried to take some images to help out with this: You don't have to use the color of wiring that I used:
 
