@@ -75,7 +75,9 @@ Enter the downloaded DWIN_T5UIC1_LCD folder.
 
 To get  your API key run:
 
-`~/moonraker/scripts/fetch-apikey.sh`
+```bash
+~/moonraker/scripts/fetch-apikey.sh
+```
 
 Edit the file run.py and past your API key
 
