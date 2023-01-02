@@ -72,7 +72,7 @@ I tried to take some images to help out with this: You don't have to use the col
 I have added some Ender 3S1 specific images:
 
 <img src ="images/Ender3S1_LCD_Board.JPG?raw=true" width="325" height="200">
-<img src ="images/Ender3S1_LCD_plug.jpg?raw=true" width="325" height="180">
+<img src ="images/Ender3S1_LCD_plug.jpg?raw=true" width="325" height="220">
 
 ### Run The Code
 
