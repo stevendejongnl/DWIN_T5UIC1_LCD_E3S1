@@ -47,6 +47,9 @@ To:
 
 
 ### Wire the display 
+
+<img src ="images/Raspberry_Pi_GPIO.png?raw=true" width="325" height="75">
+
   * Display <-> Raspberry Pi GPIO BCM
   * Rx  =   GPIO14  (Tx)
   * Tx  =   GPIO15  (Rx)
