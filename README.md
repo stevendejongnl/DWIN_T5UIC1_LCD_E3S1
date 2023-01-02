@@ -59,7 +59,7 @@ To:
   * Vcc =   2   (5v)
   * Gnd =   6   (GND)
 
-<img src ="images/GPIO.png?raw=true" width="325" height="75">
+<img src ="images/GPIO.png?raw=true" width="800" height="572">
 
 Here's a diagram based on my color selection:
 
