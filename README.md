@@ -1,6 +1,6 @@
 # DWIN_T5UIC1_LCD
 
-## Python class for the Ender 3 V2 LCD runing klipper3d with Moonraker 
+## Python class for the Ender 3 V2 and Ender 3 S1 LCD runing klipper3d with Moonraker 
 
 https://www.klipper3d.org
 
@@ -124,22 +124,27 @@ Run with `python3 ./run.py`
 	Note: Delay of 30s after boot to allow webservices to settal.
 	
 	path of `run.py` is expected to be `/home/pi/DWIN_T5UIC1_LCD/run.py`
+	
+```bash
+sudo chmod +x run.sh run.py simpleLCD.service
+```
+   
+```bash
+sudo mv simpleLCD.service /lib/systemd/system/simpleLCD.service
+```
+   
+```bash
+sudo chmod 644 /lib/systemd/system/simpleLCD.service`
+```
 
-   `sudo chmod +x run.py`
-   
-   `sudo chmod +x simpleLCD.service`
-   
-   `sudo mv simpleLCD.service /lib/systemd/system/simpleLCD.service`
-   
-   `sudo chmod 644 /lib/systemd/system/simpleLCD.service`
-   
-   `sudo systemctl daemon-reload`
-   
-   `sudo systemctl enable simpleLCD.service`
-   
-   `sudo reboot`
-   
-   
+```bash
+sudo systemctl daemon-reload && sudo systemctl enable simpleLCD.service
+```
+
+```bash
+sudo reboot
+```
+
 
 # Status:
 
