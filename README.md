@@ -69,6 +69,11 @@ I tried to take some images to help out with this: You don't have to use the col
 
 <img src ="images/wire4.png?raw=true" width="400" height="300">
 
+I have added some Ender 3S1 specific images:
+
+<img src ="images/Ender3S1_LCD_Board.JPG?raw=true" width="325" height="200">
+<img src ="images/Ender3S1_LCD_plug.jpg?raw=true" width="325" height="180">
+
 ### Run The Code
 
 Enter the downloaded DWIN_T5UIC1_LCD folder.
