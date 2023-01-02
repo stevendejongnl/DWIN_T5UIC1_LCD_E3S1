@@ -72,9 +72,13 @@ I tried to take some images to help out with this: You don't have to use the col
 ### Run The Code
 
 Enter the downloaded DWIN_T5UIC1_LCD folder.
-Make new file run.py and copy/paste in the following (pick one)
 
-For an Ender3v2
+get your API key.
+'~/moonraker/scripts/fetch-apikey.sh'
+
+Edit the file run.py and past your API key
+
+For an Ender3v2 and Ender 3 S1
 ```python
 #!/usr/bin/env python3
 from dwinlcd import DWIN_LCD
@@ -92,7 +96,7 @@ DWINLCD = DWIN_LCD(
 )
 ```
 
-If your control wheel is reversed (Voxelab Aquila) use this instead.
+If your control wheel is reversed (Voxelab Aquila) change the encoder_pins to this instead.
 ```python
 #!/usr/bin/env python3
 from dwinlcd import DWIN_LCD
