@@ -43,7 +43,7 @@ To:
 
   `sudo pip3 install multitimer`
 
-  `git clone https://github.com/bustedlogic/DWIN_T5UIC1_LCD.git`
+  `git clone https://github.com/RobRobM/DWIN_T5UIC1_LCD_E3S1.git`
 
 
 ### Wire the display 
