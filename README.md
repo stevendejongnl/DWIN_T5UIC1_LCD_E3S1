@@ -29,12 +29,17 @@ https://github.com/arksine/moonraker
 
 ### Check if Klipper's Application Programmer Interface (API) is enabled
 
-open klipper.service and check ([Service]... ExecStart=...) if klipper.py is started with the -a parameter
+Open klipper.service and check ([Service]... ExecStart=...) if klipper.py is started with the -a parameter
+
+```
+sudo nano /etc/systemd/system/klipper.service
+```
 
 If not add it and reboot your pi.
 
 Example of my klipper.service:
-```
+
+```bash
 #Systemd service file for klipper
 
 [Unit]
@@ -52,12 +57,6 @@ ExecStart=/home/pi/klippy-env/bin/python /home/pi/klipper/klippy/klippy.py /home
 Restart=always
 RestartSec=10
 ```
-
-```
-sudo nano /etc/systemd/system/klipper.service
-```
-
-
 
 ### Library requirements 
 
