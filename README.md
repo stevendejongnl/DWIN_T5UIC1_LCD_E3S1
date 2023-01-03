@@ -35,7 +35,7 @@ Open klipper.service and check ([Service]... ExecStart=...) if klipper.py is sta
 sudo nano /etc/systemd/system/klipper.service
 ```
 
-If not add it and reboot your pi.
+If not, add it and reboot your pi.
 
 Example of my klipper.service:
 
