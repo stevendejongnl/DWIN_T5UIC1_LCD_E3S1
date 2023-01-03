@@ -153,10 +153,16 @@ DWINLCD = DWIN_LCD(
 	API_Key
 )
 ```
+Make run.py executable
 
-Run with `python3 ./run.py`
-Your output should be 
+```
+sudo chmod +x run.py
+```
 
+Run with `python3 ./run.py` or './run.py'
+Your output should be:
+
+```
 DWIN handshake 
 DWIN OK.
 http://127.0.0.1:80
@@ -167,9 +173,9 @@ Connection.
 Boot looks good
 Testing Web-services
 Web site exists
+```
 
-
-
+Press ctrl+c to exit run.py
 
 # Run at boot:
 
@@ -181,11 +187,11 @@ Web site exists
 	The run.sh script that is loaded by simpleLCD.service will re-run run.py on firmware restarts of the printe. If it fails to start for 5 times within 30 second it will exit and stop until the net boot. 
 
 ```bash
-sudo chmod +x run.sh run.py simpleLCD.service
+sudo chmod +x run.sh simpleLCD.service
 ```
    
 ```bash
-sudo mv simpleLCD.service /lib/systemd/system/simpleLCD.service
+sudo cp simpleLCD.service /lib/systemd/system/simpleLCD.service
 ```
    
 ```bash
@@ -200,6 +206,7 @@ sudo systemctl daemon-reload && sudo systemctl enable simpleLCD.service
 sudo reboot
 ```
 
+Your LCD should start after 30 seconds. And when you restart your printer firmware the LCD should restart as well.
 
 # Status:
 
