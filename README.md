@@ -1,4 +1,4 @@
-# DWIN_T5UIC1_LCD
+# DWIN_T5UIC1_LCD_E3S1
 
 ## Python class for the Ender 3 V2 and Ender 3 S1 LCD runing klipper3d with Moonraker 
 
