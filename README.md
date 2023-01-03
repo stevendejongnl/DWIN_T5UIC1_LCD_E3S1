@@ -27,7 +27,7 @@ https://github.com/arksine/moonraker
     
     dtoverlay=disable-bt
 
-### [Enabling Klipper's API socket](https://www.klipper3d.org/API_Server.html)
+### this might not be necessary! I'm reviewing this at the moment.  [Enabling Klipper's API socket](https://www.klipper3d.org/API_Server.html)
   By default, the Klipper's API socket is not enabled. In order to use the API server, the file /etc/default/klipper need to be updated form
 
     KLIPPY_ARGS="/home/pi/klipper/klippy/klippy.py /home/pi/printer.cfg -l /tmp/klippy.log"
