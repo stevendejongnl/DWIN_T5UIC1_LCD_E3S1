@@ -90,9 +90,8 @@ Here's a diagram based on my color selection:
 
 I tried to take some images to help out with this: You don't have to use the color of wiring that I used:
 
-<img src ="images/wire1.png?raw=true" width="492" height="208">
+<img src ="images/wire1.png?raw=true" width="200" height="400"> <img src ="images/wire2.png?raw=true" width="200" height="400">
 
-<img src ="images/wire2.png?raw=true" width="492" height="208">
 
 <img src ="images/wire3.png?raw=true" width="400" height="200">
 
