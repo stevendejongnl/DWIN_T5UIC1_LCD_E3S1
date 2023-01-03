@@ -27,13 +27,37 @@ https://github.com/arksine/moonraker
     
     dtoverlay=disable-bt
 
-### this might not be necessary! I'm reviewing this at the moment.  [Enabling Klipper's API socket](https://www.klipper3d.org/API_Server.html)
-  By default, the Klipper's API socket is not enabled. In order to use the API server, the file /etc/default/klipper need to be updated form
+### Check if Klipper's Application Programmer Interface (API) is enabled
 
-    KLIPPY_ARGS="/home/pi/klipper/klippy/klippy.py /home/pi/printer.cfg -l /tmp/klippy.log"
-To:
+open klipper.service and check ([Service]... ExecStart=...) if klipper.py is started with the -a parameter
 
-    KLIPPY_ARGS="/home/pi/klipper/klippy/klippy.py /home/pi/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log"
+If not add it and reboot your pi.
+
+Example of my klipper.service:
+```
+#Systemd service file for klipper
+
+[Unit]
+Description=Starts klipper on startup
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+RemainAfterExit=yes
+ExecStart=/home/pi/klippy-env/bin/python /home/pi/klipper/klippy/klippy.py /home/pi/klipper_config/printer.cfg -l /home/pi/klipper_logs/klippy.log -a /tmp/klippy_uds
+Restart=always
+RestartSec=10
+```
+
+```
+sudo nano /etc/systemd/system/klipper.service
+```
+
+
 
 ### Library requirements 
 
