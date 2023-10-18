@@ -4,6 +4,19 @@ import serial
 import struct
 
 
+def _MAX(lhs, rhs):
+	if lhs > rhs:
+		return lhs
+	else:
+		return rhs
+
+
+def _MIN(lhs, rhs):
+	if lhs < rhs:
+		return lhs
+	else:
+		return rhs
+
 class T5UIC1_LCD:
 	address = 0x2A
 	DWIN_BufTail = [0xCC, 0x33, 0xC3, 0x3C]
@@ -15,6 +28,8 @@ class T5UIC1_LCD:
 	RECEIVED_SHAKE_HAND_ACK = 0x01
 
 	FHONE = b'\xAA'
+ 
+	need_lcd_update = False
 
 	DWIN_WIDTH = 272
 	DWIN_HEIGHT = 480
@@ -81,6 +96,7 @@ class T5UIC1_LCD:
 		self.MYSERIAL1 = serial.Serial(USARTx, 115200, timeout=1)
 		# self.bus = SMBus(1)
 		# self.DWIN_SendBuf = self.FHONE
+		self.need_lcd_update = False
 		print("\nDWIN handshake ")
 		while not self.Handshake():
 			pass
@@ -115,7 +131,9 @@ class T5UIC1_LCD:
 		self.MYSERIAL1.write(self.DWIN_BufTail)
 
 		self.DWIN_SendBuf = self.FHONE
-		time.sleep(0.001)
+		#time.sleep(0.001)  # VArt: not sure if neded
+		self.need_lcd_update=True
+  
 
 	def Read(self, lend=1):
 		bit = self.bus.read_i2c_block_data(self.address, 0, lend)
@@ -164,8 +182,10 @@ class T5UIC1_LCD:
 
 	# Update display
 	def UpdateLCD(self):
-		self.Byte(0x3D)
-		self.Send()
+		if (self.need_lcd_update):
+			self.Byte(0x3D)
+			self.Send()
+			self.need_lcd_update=False
 
 	# /*---------------------------------------- Drawing functions ----------------------------------------*/
 

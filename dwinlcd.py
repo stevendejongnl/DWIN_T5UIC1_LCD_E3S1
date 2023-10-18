@@ -343,12 +343,13 @@ class DWIN_LCD:
 		self.EncodeEnter = current_milli_time() + self.ENCODER_WAIT_ENTER
 		self.next_rts_update_ms = 0
 		self.last_cardpercentValue = 101
+		self.lcdLock = threading.RLock()  # encoder_has_data & EachMomentUpdate threads
 		self.lcd = T5UIC1_LCD(USARTx)
 		self.lcd.Backlight_SetLuminance(0x14) #Sur 20
 		self.checkkey = self.MainMenu
 		self.pd = PrinterData(octoPrint_API_Key)
-		self.timer = RepeatableTimer(		#mkocot
-			interval=1, function=self.EachMomentUpdate) #sur interval 1(2)
+		self.timer = RepeatableTimer(
+			interval=0.0, function=self.EachMomentUpdate) #sur interval 1(2)
 		self.HMI_ShowBoot()
 		#self.HMI_AudioFeedback(True) #Sur?
 		print("Boot looks good")
@@ -1614,7 +1615,7 @@ class DWIN_LCD:
 			elif self.select_ABS.now == self.PREHEAT_CASE_TEMP:  # Nozzle temperature
 				self.checkkey = self.ETemp
 				self.pd.HMI_ValueStruct.E_Temp = self.pd.material_preset[1].hotend_temp
-				print(self.pd.HMI_ValueStruct.E_Temp)
+				#print(self.pd.HMI_ValueStruct.E_Temp)
 				self.lcd.Draw_IntValue(
 					True, True, 0, self.lcd.font8x16, self.lcd.Color_White, self.lcd.Select_Color,
 					3, 216, self.MBASE(self.PREHEAT_CASE_TEMP),
@@ -2847,9 +2848,10 @@ class DWIN_LCD:
 	def EachMomentUpdate(self):
 		# variable update
 		update = self.pd.update_variable()
+		self.lcdLock.acquire(blocking=True, timeout=- 1)
 		if self.last_status != self.pd.status:
 			self.last_status = self.pd.status
-			print(self.pd.status)
+			#print(self.pd.status)
 			if self.pd.status == 'printing':
 				self.Goto_PrintProcess()
 			elif self.pd.status in ['operational', 'complete', 'standby', 'cancelled']:
@@ -2882,8 +2884,10 @@ class DWIN_LCD:
 		if update:
 			self.Draw_Status_Area(update)
 		self.lcd.UpdateLCD()
+		self.lcdLock.release()
 
 	def encoder_has_data(self, val):
+		self.lcdLock.acquire(blocking=True, timeout=- 1)
 		if self.checkkey == self.MainMenu:
 			self.HMI_MainMenu()
 		elif self.checkkey == self.SelectFile:
@@ -2955,6 +2959,8 @@ class DWIN_LCD:
 			self.HMI_MaxJerkXYZE()
 		elif self.checkkey == self.Step_value:
 			self.HMI_StepXYZE()
+		self.lcd.UpdateLCD()
+		self.lcdLock.release()
 
 	def get_encoder_state(self):
 		if self.button.is_pressed:	#mkocot
@@ -2963,12 +2969,12 @@ class DWIN_LCD:
 				self.EncodeLast = self.encoder.value  # Update to prevent later trouble
 				self.encoder.reset()	
 				return self.ENCODER_DIFF_ENTER
-			print("button.is_pressed double click prevention")
+			#print("button.is_pressed double click prevention")
 			return self.ENCODER_DIFF_NO
 
 		if self.EncoderRateLimit:
 			if self.EncodeMS > current_milli_time():
-				print("EncoderRateLimit hit")
+				#print("EncoderRateLimit hit")
 				self.EncodeLast = self.encoder.value  # Update to prevent later trouble
 				self.encoder.reset()
 				return self.ENCODER_DIFF_NO
