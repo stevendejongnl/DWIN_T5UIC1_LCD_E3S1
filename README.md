@@ -185,15 +185,7 @@ sudo chmod +x run.sh simpleLCD.service
 ```
    
 ```bash
-sudo cp simpleLCD.service /lib/systemd/system/simpleLCD.service
-```
-   
-```bash
-sudo chmod 644 /lib/systemd/system/simpleLCD.service
-```
-
-```bash
-sudo systemctl daemon-reload && sudo systemctl enable simpleLCD.service
+sudo systemctl enable /home/steven/DWIN_T5UIC1_LCD_E3S1/simpleLCD.service --now
 ```
 
 ```bash
