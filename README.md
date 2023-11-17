@@ -53,7 +53,7 @@ WantedBy=multi-user.target
 Type=simple
 User=pi
 RemainAfterExit=yes
-ExecStart=/home/pi/klippy-env/bin/python /home/pi/klipper/klippy/klippy.py /home/pi/klipper_config/printer.cfg -l /home/pi/klipper_logs/klippy.log -a /tmp/klippy_uds
+ExecStart=/home/steven/klippy-env/bin/python /home/steven/klipper/klippy/klippy.py /home/steven/klipper_config/printer.cfg -l /home/steven/klipper_logs/klippy.log -a /tmp/klippy_uds
 Restart=always
 RestartSec=10
 ```
@@ -66,7 +66,7 @@ RestartSec=10
 
   `sudo pip3 install multitimer`
 
-  `git clone https://github.com/RobRobM/DWIN_T5UIC1_LCD_E3S1.git`
+  `git clone https://github.com/stevendejongnl/DWIN_T5UIC1_LCD_E3S1.git`
 
 
 ### Wire the display 
@@ -82,26 +82,18 @@ RestartSec=10
   * Vcc =   2   (5v)
   * Gnd =   6   (GND)
 
-<img src ="images/GPIO.png?raw=true" width="325" height="75">
-
 Here's a diagram based on my color selection:
 
 <img src ="images/GPIO.png?raw=true" width="325" height="75">
+<img src ="images/panel.png?raw=true" width="325" height="180">
 
 I tried to take some images to help out with this: You don't have to use the color of wiring that I used:
 
-<img src ="images/wire1.jpg?raw=true" width="492" height="208"> 
-<img src ="images/wire2.jpg?raw=true" width="492" height="208">
-
+<img src ="images/wire1.png?raw=true" width="200" height="400"> <img src ="images/wire2.png?raw=true" width="200" height="400">
 
 <img src ="images/wire3.png?raw=true" width="400" height="200">
 
 <img src ="images/wire4.png?raw=true" width="400" height="300">
-
-I have added some Ender 3S1 specific images:
-
-<img src ="images/Ender3S1_LCD_Board.JPG?raw=true" width="325" height="200">
-<img src ="images/Ender3S1_LCD_plug.jpg?raw=true" width="325" height="220">
 
 ### Run The Code
 
@@ -183,8 +175,8 @@ Press ctrl+c to exit run.py
 
 	Note: Delay of 20s after boot to allow webservices to settal.
 	
-	path of `run.sh` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.sh`
-	path of `run.py` is expected to be `/home/pi/DWIN_T5UIC1_LCD_E3S1/run.py`
+	path of `run.sh` is expected to be `/home/steven/DWIN_T5UIC1_LCD_E3S1/run.sh`
+	path of `run.py` is expected to be `/home/steven/DWIN_T5UIC1_LCD_E3S1/run.py`
 	
 	The run.sh script that is loaded by simpleLCD.service will re-run run.py on firmware restarts of the printe. If it fails to start for 5 times within 30 second it will exit and stop until the net boot. 
 

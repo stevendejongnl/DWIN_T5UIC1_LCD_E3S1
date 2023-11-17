@@ -5,7 +5,7 @@
  [Service]
  Type=idle
  ExecStartPre=/bin/sleep 20
- ExecStart=/bin/sh -c '/home/pi/DWIN_LCD/run.sh'
+ ExecStart=/bin/sh -c '/home/steven/DWIN_LCD/run.sh'
  Restart=always
 
  [Install]
