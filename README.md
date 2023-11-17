@@ -99,54 +99,29 @@ I tried to take some images to help out with this: You don't have to use the col
 
 Enter the downloaded DWIN_T5UIC1_LCD_E3S1 folder.
 
-To get  your API key run:
-
-```bash
-~/moonraker/scripts/fetch-apikey.sh
-```
-
-Edit the file run.py and past your API key
-
-```bash
-nano run.py
-```
-This is how the run.py looks for an Ender3v2 and Ender 3 S1
+Encoder pins are set for a Voxelab Aquila, to change the orientation to an Ender flip the pins to `(26, 19`
 
 ```python
+# run.py
+
 #!/usr/bin/env python3
-from dwinlcd import DWIN_LCD
+import subprocess
 
-encoder_Pins = (26, 19)
-button_Pin = 13
-LCD_COM_Port = '/dev/ttyAMA0'
-API_Key = 'XXXXXX'
-
-DWINLCD = DWIN_LCD(
-	LCD_COM_Port,
-	encoder_Pins,
-	button_Pin,
-	API_Key
-)
-```
-
-If your control wheel is reversed (Voxelab Aquila) change the encoder_pins to this instead.
-
-```python
-#!/usr/bin/env python3
 from dwinlcd import DWIN_LCD
 
 encoder_Pins = (19, 26)
 button_Pin = 13
 LCD_COM_Port = '/dev/ttyAMA0'
-API_Key = 'XXXXXX'
+API_Key = subprocess.check_output('/home/steven/moonraker/scripts/fetch-apikey.sh', shell=True, text=True)
 
 DWINLCD = DWIN_LCD(
-	LCD_COM_Port,
-	encoder_Pins,
-	button_Pin,
-	API_Key
+    LCD_COM_Port,
+    encoder_Pins,
+    button_Pin,
+    API_Key.strip()
 )
 ```
+
 Make run.py executable
 
 ```
