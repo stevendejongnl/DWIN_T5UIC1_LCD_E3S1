@@ -160,7 +160,7 @@ Your output should be:
 DWIN handshake 
 DWIN OK.
 http://127.0.0.1:80
-Waiting for connect to /tmp/klippy_uds
+Waiting for connect to /home/steven/printer_data/comms/klippy.sock
 
 Connection.
 
